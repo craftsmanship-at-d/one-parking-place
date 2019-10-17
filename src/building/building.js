@@ -16,7 +16,7 @@ const Building = ({ building }) => {
     );
 };
 
-function handleBuildingClick( building ) {
+function handleBuildingClick(building) {
     console.log(building);
     store.dispatch(setDisplayBuildingDetails(building));
 }
