@@ -1,0 +1,9 @@
+.Building {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .Building:hover {
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
