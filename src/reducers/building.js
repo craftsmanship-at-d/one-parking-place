@@ -28,7 +28,7 @@ var buildings = [
     ]
   },
   {
-    name: "reactor",
+    name: "re(f)actor",
     level: 3,
     cost: [{
       unit: "rocks",
