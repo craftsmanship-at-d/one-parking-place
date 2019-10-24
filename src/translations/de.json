@@ -1,7 +1,9 @@
 {
   "navbar": {
+    "options": "Parkmöglichkeiten",
     "preview": "Übersicht",
     "reserve": "Reservieren",
-    "leave": "Freigeben"
+    "leave": "Freigeben",
+    "details": "Einzelheiten"
   }
 }

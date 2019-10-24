@@ -1,7 +1,9 @@
 {
   "navbar": {
+    "options": "Parking Options",
     "preview": "Podgląd",
     "reserve": "Rezerwuj",
-    "leave": "Zwolnij"
+    "leave": "Zwolnij",
+    "details": "Szczegóły"
   }
 }
