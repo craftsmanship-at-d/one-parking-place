@@ -1,13 +1,13 @@
-import i18next from "i18next";
-import React from "react";
-import ReactDOM from "react-dom";
-import {initReactI18next} from "react-i18next";
-import App from "./App";
-import "./index.css";
-import * as serviceWorker from "./serviceWorker";
-import common_de from "./translations/de.json";
-import common_en from "./translations/en.json";
-import common_pl from "./translations/pl.json";
+import i18next from 'i18next';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { initReactI18next } from 'react-i18next';
+import App from './App';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+import common_de from './translations/de.json';
+import common_en from './translations/en.json';
+import common_pl from './translations/pl.json';
 
 const resources = {
     de: {
@@ -22,14 +22,10 @@ const resources = {
 };
 
 i18next.use(initReactI18next).init({
-    interpolation: {escapeValue: false},
-    lng: "en",
+    interpolation: { escapeValue: false },
+    lng: 'en',
     resources,
 });
 
-ReactDOM.render(<App/>, document.getElementById("root"));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<App/>, document.getElementById('root'));
 serviceWorker.unregister();
