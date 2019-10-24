@@ -116,10 +116,6 @@
                 "singleline": "never"
             }
         ],
-        "linebreak-style": [
-            true,
-            "LF"
-        ],
         "typedef": [
             true,
             "call-signature",
