@@ -10,7 +10,7 @@ export class OccupiedPlaceComponent extends React.Component <any, any> {
                 <span className="smallFont">{this.props.parkingPlace.number}</span>
                 <DirectionsCarIcon className="occupied"/>
             </div>
-        )
+        );
     }
 
 }

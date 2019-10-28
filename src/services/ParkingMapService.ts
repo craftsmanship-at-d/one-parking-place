@@ -3,7 +3,7 @@ import { ParkingPlace } from './ParkingPlace';
 export class ParkingMapService {
 
     public static getParkingPlaces(): ParkingPlace[][] {
-        const places = [[ParkingPlace.createOccupiedParkingPlace(0), ParkingPlace.createRoad(),
+        const places = [[ParkingPlace.createOccupiedParkingPlace(0), ParkingPlace.createEntry(),
             ParkingPlace.createEmptyParkingPlace(1), ParkingPlace.createRoad(),
             ParkingPlace.createEmptyParkingPlace(2)],
             [ParkingPlace.createOccupiedParkingPlace(3), ParkingPlace.createRoad(), ParkingPlace.createEmptyParkingPlace(4),

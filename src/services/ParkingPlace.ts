@@ -18,4 +18,7 @@ export class ParkingPlace {
     static createRoad(): ParkingPlace {
         return new ParkingPlace(ParkingPlaceType.ROAD, 0);
     }
+    static createEntry(): ParkingPlace {
+        return new ParkingPlace(ParkingPlaceType.ENTRY, 0);
+    }
 }
