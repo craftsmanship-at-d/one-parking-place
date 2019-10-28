@@ -1,7 +1,9 @@
 {
   "navbar": {
+    "title": "Parking Options",
     "preview": "Preview",
     "reserve": "Reserve",
-    "leave": "Leave"
+    "leave": "Leave",
+    "details": "Details"
   }
 }
