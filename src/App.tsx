@@ -7,9 +7,12 @@ import {ParkingComponent} from './components/parking-component/ParkingComponent'
 const App: React.FC = () => {
     return (
         <Box display="flex" justifyContent="flex-start">
+            <Box>
             <NavbarDialog/>
-            <ParkingComponent/>
-        </Box>
+            </Box>
+            <Box flexGrow={1} padding={3}>
+                <ParkingComponent/> 
+            </Box>
     );
 };
 
