@@ -1,0 +1,11 @@
+.withBorder {
+    border: black;
+    border-width: medium;
+    border-style: groove;
+    width: max-content !important;
+    height: max-content !important;
+}
+
+.greyBackground {
+    background-color: lightgray;
+}
