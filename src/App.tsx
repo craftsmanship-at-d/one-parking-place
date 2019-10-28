@@ -1,13 +1,13 @@
 import {Box} from '@material-ui/core';
 import React from 'react';
 import './App.css';
-import {NavbarComponent} from './components/nav-bar-component/NavbarComponent';
+import { NavbarDialog } from './components/main-nav-bar-component/NavbarDialog';
 import {ParkingComponent} from './components/parking-component/ParkingComponent';
 
 const App: React.FC = () => {
     return (
         <Box display="flex" justifyContent="flex-start">
-            <NavbarComponent/>
+            <NavbarDialog/>
             <ParkingComponent/>
         </Box>
     );
