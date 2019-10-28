@@ -1,26 +1,25 @@
-"use strict";
+'use strict';
 
-const { Datastore } = require("@google-cloud/datastore");
+const { Datastore } = require('@google-cloud/datastore');
 
-const datastore = new Datastore({ project: "one-parking-place" });
+const datastore = new Datastore({ project: 'one-parking-place' });
 
 exports.queryAuthorization = function(email, pin) {
-  var query = datastore.createQuery("Authorization");
-  query = query.filter("email", email);
-  query = query.filter("pin", pin);
+  var query = datastore.createQuery('Authorization');
+  query = query.filter('email', email);
+  query = query.filter('pin', pin);
 
-  return datastore.runQuery(query);
+  return extractDataFromPromiseAwait(datastore.runQuery(query));
 };
 
-exports.saveAuthorization = function(email, pin) {
-  const key = datastore.key("Authorization");
+exports.saveAuthorization = function(email, pin, hash) {
+  const key = datastore.key('Authorization');
   const entity = {
     key: key,
     data: {
       email: email,
-      hash: "generateSth",
-      pin: pin,
-      token: null,
+      hash: hash,
+      pin: pin
     }
   };
 
@@ -34,3 +33,26 @@ exports.saveAuthorization = function(email, pin) {
     });
 };
 
+exports.queryEmailSettings = function() {
+    var query = datastore.createQuery('EmailConfig');
+  
+    return extractDataFromPromiseAwait(datastore.runQuery(query));
+  };
+
+var extractDataFromPromiseAwait = async function(promise) {
+    var entity;
+
+    promise
+      .then(data => {
+        if (data[0][0]) {
+            entity = data[0][0];
+        }
+      })
+      .catch(err => {
+        throw err;
+      });
+    await promise;
+
+    return entity;
+
+  }
