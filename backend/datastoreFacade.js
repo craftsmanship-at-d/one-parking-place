@@ -34,25 +34,20 @@ exports.saveAuthorization = function(email, pin, hash) {
 };
 
 exports.queryEmailSettings = function() {
-    var query = datastore.createQuery('EmailConfig');
-  
-    return extractDataFromPromiseAwait(datastore.runQuery(query));
-  };
+  var query = datastore.createQuery('EmailConfig');
 
-var extractDataFromPromiseAwait = async function(promise) {
-    var entity;
+  return extractDataFromPromiseAwait(datastore.runQuery(query));
+};
 
-    promise
-      .then(data => {
-        if (data[0][0]) {
-            entity = data[0][0];
-        }
-      })
-      .catch(err => {
-        throw err;
-      });
-    await promise;
-
-    return entity;
-
-  }
+var extractDataFromPromiseAwait = function(promise) {
+  return promise
+    .then(data => {
+      if (data[0][0]) {
+        return data[0][0];
+      }
+      return {};
+    })
+    .catch(err => {
+      throw err;
+    });
+};
