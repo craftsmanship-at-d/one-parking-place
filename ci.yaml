@@ -4,4 +4,6 @@ steps:
   timeout: "300s"
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run-script', 'lint']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run-script', 'test']
 
