@@ -11,8 +11,9 @@ const App: React.FC = () => {
             <NavbarDialog/>
             </Box>
             <Box flexGrow={1} padding={3}>
-                <ParkingComponent/> 
+                <ParkingComponent/>
             </Box>
+        </Box>
     );
 };
 
