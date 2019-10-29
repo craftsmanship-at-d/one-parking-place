@@ -2,3 +2,6 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
   timeout: "300s"
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run-script', 'lint']
+
