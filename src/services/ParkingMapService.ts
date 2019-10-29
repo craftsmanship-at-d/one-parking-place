@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { ParkingPlace } from './ParkingPlace';
 import { ParkingPlaceType } from './ParkingPlaceType';
 
@@ -14,8 +15,10 @@ export class ParkingMapService {
         [ParkingPlace.createOccupiedParkingPlace(12), ParkingPlace.createRoad(), ParkingPlace.createRoad(),
             ParkingPlace.createRoad(), ParkingPlace.createEmptyParkingPlace(13)]];
 
-    public static getParkingPlaces(): ParkingPlace[][] {
-        return this.places;
+    private static subject: BehaviorSubject<ParkingPlace[][]> = new BehaviorSubject<ParkingPlace[][]>(ParkingMapService.places);
+
+    public static getParkingPlacesSubject(): BehaviorSubject<ParkingPlace[][]> {
+        return ParkingMapService.subject;
     }
 
     public static reservePlace(parkingPlace: ParkingPlace): void {
@@ -23,9 +26,11 @@ export class ParkingMapService {
             for (const place of parkingPlaces) {
                 if (place.number === parkingPlace.number) {
                     place.type = ParkingPlaceType.OCCUPIED;
+                    break;
                 }
             }
         }
+        this.subject.next(this.places);
     }
 
     public static free(parkingPlace: ParkingPlace): void {
@@ -33,8 +38,10 @@ export class ParkingMapService {
             for (const place of parkingPlaces) {
                 if (place.number === parkingPlace.number) {
                     place.type = ParkingPlaceType.EMPTY;
+                    break;
                 }
             }
         }
+        this.subject.next(this.places);
     }
 }

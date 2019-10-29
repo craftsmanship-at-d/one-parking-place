@@ -1,5 +1,5 @@
 import { Grid } from '@material-ui/core';
-import Box from '@material-ui/core/Box'
+import Box from '@material-ui/core/Box';
 import React from 'react';
 import { ParkingMapService } from '../../services/ParkingMapService';
 import { ParkingPlace } from '../../services/ParkingPlace';
@@ -8,7 +8,15 @@ import './ParkingComponent.css';
 
 export class ParkingComponent extends React.Component {
 
-    private parkingPlaces: ParkingPlace[][] = ParkingMapService.getParkingPlaces();
+    constructor(props: any) {
+        super(props);
+        ParkingMapService.getParkingPlacesSubject().subscribe((value: ParkingPlace[][]) => {
+            this.parkingPlaces = value;
+            this.forceUpdate();
+        });
+    }
+
+    private parkingPlaces: ParkingPlace[][] = [];
 
     public render(): any {
         return (
