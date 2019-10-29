@@ -1,16 +1,23 @@
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import React from 'react';
 import './OccupiedPlaceComponent.css';
+import ParkingPlaceDetailsDialog from '../main-nav-bar-component/ParkingPlaceDetailsDialog'
+import { ParkingDialogProps } from '../parking-component/ParkingDialogProps';
 
-export class OccupiedPlaceComponent extends React.Component <any, any> {
+export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
 
-    public render(): any {
-        return (
-            <div className="occupied">
-                <span className="smallFont">{this.props.parkingPlace.number}</span>
-                <DirectionsCarIcon className="occupied"/>
-            </div>
-        );
-    }
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = ((): void => {
+        setOpen(true);
+    });
+
+    return (
+        <div className="occupied">
+            <span className="smallFont">{props.parkingPlace.number}</span>
+            <DirectionsCarIcon className="occupied" onClick={handleClickOpen}/>
+            <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
+        </div>
+    );
 
 }

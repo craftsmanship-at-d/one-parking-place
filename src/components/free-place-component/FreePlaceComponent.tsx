@@ -1,16 +1,22 @@
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import React from 'react';
+import ParkingPlaceDetailsDialog from '../main-nav-bar-component/ParkingPlaceDetailsDialog';
+import { ParkingDialogProps } from '../parking-component/ParkingDialogProps';
 import './FreePlaceComponent.css';
 
-export class FreePlaceComponent extends React.Component <any, any> {
+export function FreePlaceComponent(props: ParkingDialogProps): JSX.Element {
 
-    public render(): any {
-        return (
-            <div className="free">
-                <span className="smallFont">{this.props.parkingPlace.number}</span>
-                <LocalParkingIcon/>
-            </div>
-        );
-    }
+    const [open, setOpen] = React.useState(false);
 
+    const handleClickOpen = ((): void => {
+        setOpen(true);
+    });
+
+    return (
+        <div className="free">
+            <span className="smallFont">{props.parkingPlace.number}</span>
+            <LocalParkingIcon onClick={handleClickOpen}/>
+            <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
+        </div>
+    );
 }
