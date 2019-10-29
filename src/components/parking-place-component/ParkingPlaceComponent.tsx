@@ -1,9 +1,9 @@
-import { Box } from '@material-ui/core'
+import { Box } from '@material-ui/core';
 import React from 'react';
 import { ParkingPlaceType } from '../../services/ParkingPlaceType';
-import { EntryComponent } from '../entry-component/EntryComponent'
-import { FreePlaceComponent } from '../free-place-component/FreePlaceComponent'
-import { OccupiedPlaceComponent } from '../occupied-place-component/OccupiedPlaceComponent'
+import { EntryComponent } from '../entry-component/EntryComponent';
+import { FreePlaceComponent } from '../free-place-component/FreePlaceComponent';
+import { OccupiedPlaceComponent } from '../occupied-place-component/OccupiedPlaceComponent';
 import { RoadComponent } from '../road-component/RoadComponent';
 
 export class ParkingPlaceComponent extends React.Component<any, any> {
