@@ -35,6 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "tslint --project tsconfig.json",
+    "gcp-build": "npm run-script lint",
     "deploy": "gcloud app deploy"
   },
   "eslintConfig": {
