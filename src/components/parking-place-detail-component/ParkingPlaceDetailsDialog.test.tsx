@@ -2,7 +2,7 @@ import React, { SetStateAction } from 'react';
 import ReactDOM from 'react-dom';
 import { render } from '@testing-library/react';
 import { Simulate } from 'react-dom/test-utils';
-import { ParkingMapService } from '../../services/ParkingMapService'
+import { ParkingMapService } from '../../services/ParkingMapService';
 import { ParkingPlace } from '../../services/ParkingPlace';
 import { TranslationUtils } from '../../utils/TranslationUtils';
 import ParkingPlaceDetailsDialog from './ParkingPlaceDetailsDialog';
