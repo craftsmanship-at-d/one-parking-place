@@ -24,7 +24,9 @@
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "^3.3.0",
+    "@testing-library/react": "^9.3.0",
     "mocha": "^6.1.4",
+    "react-testing-library": "^8.0.1",
     "supertest": "^4.0.2"
   },
   "engines": {
