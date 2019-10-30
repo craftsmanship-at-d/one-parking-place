@@ -1,7 +1,7 @@
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import React from 'react';
-import ParkingPlaceDetailsDialog from '../main-nav-bar-component/ParkingPlaceDetailsDialog';
-import { ParkingDialogProps } from '../parking-component/ParkingDialogProps';
+import ParkingPlaceDetailsDialog from '../parking-place-detail-component/ParkingPlaceDetailsDialog';
+import { ParkingDialogProps } from '../parking-place-component/ParkingDialogProps';
 import './FreePlaceComponent.css';
 
 export function FreePlaceComponent(props: ParkingDialogProps): JSX.Element {

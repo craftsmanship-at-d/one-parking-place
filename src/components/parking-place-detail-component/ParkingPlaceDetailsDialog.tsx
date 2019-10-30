@@ -1,5 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import React, { Dispatch, SetStateAction } from 'react';
+import { Trans } from 'react-i18next';
 import { ParkingMapService } from '../../services/ParkingMapService';
 import { ParkingPlace } from '../../services/ParkingPlace';
 import { ParkingPlaceType } from '../../services/ParkingPlaceType';
@@ -29,11 +30,11 @@ export default function ParkingPlaceDetailsDialog(props: ParkingPlaceDetailsProp
     function getSubmitButton(): JSX.Element {
         return props.parkingPlace.type === ParkingPlaceType.EMPTY ? (
             <Button onClick={reserve} color="primary">
-                Reserve
+                <Trans i18nKey="details.reserve"/>
             </Button>
         ) : (
             <Button onClick={free} color="primary">
-                Free
+                <Trans i18nKey="details.free"/>
             </Button>
         );
     }
@@ -41,16 +42,16 @@ export default function ParkingPlaceDetailsDialog(props: ParkingPlaceDetailsProp
     return (
         <div>
             <Dialog open={props.open} onClose={handleClose}>
-                <DialogTitle>Parking Place</DialogTitle>
+                <DialogTitle><Trans i18nKey="details.title"/></DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Parking Place No. {props.parkingPlace.number}
+                        <Trans i18nKey="details.parkingPlaceNumber"/>{props.parkingPlace.number}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     {getSubmitButton()}
                     <Button onClick={handleClose} color="primary">
-                        Close
+                        <Trans i18nKey="details.close"/>
                     </Button>
                 </DialogActions>
             </Dialog>

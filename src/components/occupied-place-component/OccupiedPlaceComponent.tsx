@@ -1,8 +1,8 @@
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import React from 'react';
 import './OccupiedPlaceComponent.css';
-import ParkingPlaceDetailsDialog from '../main-nav-bar-component/ParkingPlaceDetailsDialog'
-import { ParkingDialogProps } from '../parking-component/ParkingDialogProps';
+import ParkingPlaceDetailsDialog from '../parking-place-detail-component/ParkingPlaceDetailsDialog'
+import { ParkingDialogProps } from '../parking-place-component/ParkingDialogProps';
 
 export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
 

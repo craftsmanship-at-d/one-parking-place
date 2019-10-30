@@ -5,5 +5,12 @@
     "reserve": "Reservieren",
     "leave": "Freigeben",
     "details": "Einzelheiten"
+  },
+  "details": {
+    "title": "Parkplatz",
+    "reserve": "Reserviere",
+    "free": "Befreien",
+    "parkingPlaceNumber": "Parkplatznummer ",
+    "close": "Schließen"
   }
 }

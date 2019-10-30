@@ -26,11 +26,11 @@ export class ParkingMapService {
             for (const place of parkingPlaces) {
                 if (place.number === parkingPlace.number) {
                     place.type = ParkingPlaceType.OCCUPIED;
-                    break;
+                    this.subject.next(this.places);
+                    return;
                 }
             }
         }
-        this.subject.next(this.places);
     }
 
     public static free(parkingPlace: ParkingPlace): void {
@@ -38,10 +38,10 @@ export class ParkingMapService {
             for (const place of parkingPlaces) {
                 if (place.number === parkingPlace.number) {
                     place.type = ParkingPlaceType.EMPTY;
-                    break;
+                    this.subject.next(this.places);
+                    return;
                 }
             }
         }
-        this.subject.next(this.places);
     }
 }
