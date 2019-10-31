@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 import './NavbarContent.css';
 
 export class NavbarContent extends React.Component {
-    render(): any {
+    render(): JSX.Element {
 
         return (
             <div className="box">

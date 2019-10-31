@@ -8,7 +8,7 @@ import { RoadComponent } from '../road-component/RoadComponent';
 
 export class ParkingPlaceComponent extends React.Component<any, any> {
 
-    public render(): any {
+    public render(): JSX.Element {
         return (
             <Box>
                 {this.getIcon()}

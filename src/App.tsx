@@ -4,7 +4,7 @@ import './App.css';
 import { NavbarDialog } from './components/main-nav-bar-component/NavbarDialog';
 import {ParkingComponent} from './components/parking-component/ParkingComponent';
 
-const App: React.FC = () => {
+const App: React.FC = ((): JSX.Element => {
     return (
         <Box display="flex" justifyContent="flex-start">
             <Box>
@@ -15,6 +15,6 @@ const App: React.FC = () => {
             </Box>
         </Box>
     );
-};
+});
 
 export default App;

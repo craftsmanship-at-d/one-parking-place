@@ -4,7 +4,7 @@ import './RoadComponent.css';
 
 export class RoadComponent extends React.Component {
 
-    public render(): any {
+    public render(): JSX.Element {
         return (
             <div className="size">
                 <CropSquareIcon className="invisible"/>

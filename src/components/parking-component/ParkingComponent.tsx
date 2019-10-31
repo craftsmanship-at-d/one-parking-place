@@ -18,7 +18,7 @@ export class ParkingComponent extends React.Component {
 
     private parkingPlaces: ParkingPlace[][] = [];
 
-    public render(): any {
+    public render(): JSX.Element {
         return (
             <Grid container={true} className="withBorder greyBackground">
                 {this.parkingPlaces.map((parkingRow: ParkingPlace[]) => this.createParkingRow(parkingRow))}

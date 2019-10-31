@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "^3.3.0",
+    "concurrently": "^5.0.0",
     "@testing-library/react": "^9.3.0",
     "mocha": "^6.1.4",
     "react-testing-library": "^8.0.1",
@@ -36,8 +37,10 @@
     "start": "node server.js",
     "serve": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --bail",
     "eject": "react-scripts eject",
+    "lint": "tslint --project tsconfig.json",
+    "gcp-build": "concurrently --kill-others \"npm run-script lint\" \"npm run-script test\"",
     "deploy": "gcloud app deploy"
   },
   "eslintConfig": {

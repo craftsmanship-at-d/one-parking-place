@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { TranslationUtils } from './utils/TranslationUtils';
+import { TranslationUtils } from './utils/TranslationsUtils';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
