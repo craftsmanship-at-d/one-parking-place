@@ -1,46 +1,45 @@
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import React, { Component } from 'react';
+import React from 'react';
 import { NavbarContent } from '../nav-bar-component/NavbarContent';
 
-export class NavbarDialog extends Component {
-    render(): JSX.Element {
-        const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-        const open = Boolean(anchorEl);
+export function NavbarDialog(): JSX.Element {
 
-        const onClick = ((event: React.MouseEvent<HTMLElement>): void => {
-            setAnchorEl(event.currentTarget);
-        });
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
 
-        const onClose = ((): void => {
-            setAnchorEl(null);
-        });
+    const onClick = ((event: React.MouseEvent<HTMLElement>): void => {
+        setAnchorEl(event.currentTarget);
+    });
 
-        return (
-            <div>
-                <IconButton
-                    onClick={onClick}
-                >
-                    <MoreVertIcon/>
-                </IconButton>
-                <Menu
-                    id="long-menu"
-                    keepMounted={true}
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={onClose}
-                    // tslint:disable-next-line
-                    PaperProps={{
-                        style: {
-                            height: '80%',
-                            width: 200,
-                        },
-                    }}
-                >
-                    <NavbarContent/>
-                </Menu>
-            </div>
-        );
-    }
+    const onClose = ((): void => {
+        setAnchorEl(null);
+    });
+
+    return (
+        <div>
+            <IconButton
+                onClick={onClick}
+            >
+                <MoreVertIcon/>
+            </IconButton>
+            <Menu
+                id="long-menu"
+                keepMounted={true}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={onClose}
+                // tslint:disable-next-line
+                PaperProps={{
+                    style: {
+                        height: '80%',
+                        width: 200,
+                    },
+                }}
+            >
+                <NavbarContent/>
+            </Menu>
+        </div>
+    );
 }
