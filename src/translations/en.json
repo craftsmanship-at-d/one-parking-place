@@ -5,5 +5,12 @@
     "reserve": "Reserve",
     "leave": "Leave",
     "details": "Details"
+  },
+  "details": {
+    "title": "Parking Place",
+    "reserve": "Reserve",
+    "free": "Free",
+    "parkingPlaceNumber": "Parking Place No. ",
+    "close": "Close"
   }
 }

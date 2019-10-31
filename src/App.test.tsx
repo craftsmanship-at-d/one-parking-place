@@ -4,8 +4,8 @@ import App from './App';
 import { TranslationUtils } from './utils/TranslationsUtils';
 
 it('renders without crashing', () => {
-    TranslationUtils.initializeTranslation();
     const div = document.createElement('div');
+    TranslationUtils.initializeTranslation();
     ReactDOM.render(<App/>, div);
     ReactDOM.unmountComponentAtNode(div);
 });
