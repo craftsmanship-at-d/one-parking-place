@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { TranslationUtils } from './utils/TranslationsUtils';
+import { TranslationUtils } from './utils/TranslationsUtils'
+
 
 it('renders without crashing', () => {
     TranslationUtils.initializeTranslation();
