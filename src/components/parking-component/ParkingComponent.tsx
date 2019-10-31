@@ -1,5 +1,5 @@
 import { Grid } from '@material-ui/core';
-import Box from '@material-ui/core/Box'
+import Box from '@material-ui/core/Box';
 import React from 'react';
 import { ParkingMapService } from '../../services/ParkingMapService';
 import { ParkingPlace } from '../../services/ParkingPlace';
@@ -10,7 +10,7 @@ export class ParkingComponent extends React.Component {
 
     private parkingPlaces: ParkingPlace[][] = ParkingMapService.getParkingPlaces();
 
-    public render(): any {
+    public render(): JSX.Element {
         return (
             <Grid container={true} className="withBorder greyBackground">
                 {this.parkingPlaces.map((parkingRow: ParkingPlace[]) => this.createParkingRow(parkingRow))}
