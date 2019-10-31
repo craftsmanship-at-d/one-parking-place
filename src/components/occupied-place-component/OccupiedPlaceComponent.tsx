@@ -4,7 +4,7 @@ import './OccupiedPlaceComponent.css';
 
 export class OccupiedPlaceComponent extends React.Component <any, any> {
 
-    public render(): any {
+    public render(): JSX.Element {
         return (
             <div className="occupied">
                 <span className="smallFont">{this.props.parkingPlace.number}</span>
