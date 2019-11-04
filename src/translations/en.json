@@ -4,6 +4,14 @@
     "preview": "Preview",
     "reserve": "Reserve",
     "leave": "Leave",
-    "details": "Details"
+    "details": "Details",
+    "footer": "Deloitte Advisory - All rights reserved"
+  },
+  "details": {
+    "title": "Parking Place",
+    "reserve": "Reserve",
+    "free": "Free",
+    "parkingPlaceNumber": "Parking Place No. ",
+    "close": "Close"
   }
 }

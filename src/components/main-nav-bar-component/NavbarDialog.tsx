@@ -1,12 +1,13 @@
-import { createStyles, IconButton } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
-import Divider from '@material-ui/core/Divider'
-import Drawer from '@material-ui/core/Drawer'
-import List from '@material-ui/core/List'
-import makeStyles from '@material-ui/core/styles/makeStyles'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import React from 'react'
-import { Trans } from 'react-i18next'
+import { createStyles, IconButton } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import React from 'react';
+import { Trans } from 'react-i18next';
+import './NavbarDialog.css';
 
 export function NavbarDialog(): JSX.Element {
 
@@ -20,7 +21,7 @@ export function NavbarDialog(): JSX.Element {
             flexDirection: 'column',
             alignItems: 'center',
         },
-    })
+    });
 
     const buttonStyles = makeStyles(() =>
         createStyles({
@@ -33,29 +34,34 @@ export function NavbarDialog(): JSX.Element {
                 },
             },
         }),
-    )
+    );
 
-    const dialogCss = dialogStyles()
-    const buttonCss = buttonStyles()
+    const dialogCss = dialogStyles();
+    const buttonCss = buttonStyles();
 
     const [state, setState] = React.useState({
         open: false,
-    })
+    });
 
     const toggle = (isOpen: boolean): () => void => {
         return (): void => {
             setState({ open: isOpen })
         }
-    }
+    };
 
     return (
         <div>
             <IconButton
+                data-testid="dottedBtn"
                 onClick={toggle(true)}
             >
                 <MoreVertIcon/>
             </IconButton>
-            <Drawer open={state.open} onClose={toggle(false)}>
+            <Drawer
+                open={state.open}
+                onClose={toggle(false)}
+                data-testid="drawer"
+            >
                 <div
                     className={dialogCss.drawer}
                     role="presentation"
@@ -75,9 +81,12 @@ export function NavbarDialog(): JSX.Element {
                             <Trans i18nKey="navbar.details"/>
                         </Button>
                     </List>
+                    <footer className="footer">
+                        <Trans i18nKey="navbar.footer"/>
+                    </footer>
                     <Divider/>
                 </div>
             </Drawer>
         </div>
-    )
+    );
 }

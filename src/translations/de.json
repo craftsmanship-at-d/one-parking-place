@@ -4,6 +4,14 @@
     "preview": "Übersicht",
     "reserve": "Reservieren",
     "leave": "Freigeben",
-    "details": "Einzelheiten"
+    "details": "Einzelheiten",
+    "footer": "Deloitte Advisory - Alle Rechte vorbehalten"
+  },
+  "details": {
+    "title": "Parkplatz",
+    "reserve": "Reserviere",
+    "free": "Befreien",
+    "parkingPlaceNumber": "Parkplatznummer ",
+    "close": "Schließen"
   }
 }

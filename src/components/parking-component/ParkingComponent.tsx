@@ -8,7 +8,15 @@ import './ParkingComponent.css';
 
 export class ParkingComponent extends React.Component {
 
-    private parkingPlaces: ParkingPlace[][] = ParkingMapService.getParkingPlaces();
+    constructor(props: any) {
+        super(props);
+        ParkingMapService.getParkingPlacesSubject().subscribe((value: ParkingPlace[][]) => {
+            this.parkingPlaces = value;
+            this.forceUpdate();
+        });
+    }
+
+    private parkingPlaces: ParkingPlace[][] = [];
 
     public render(): JSX.Element {
         return (
