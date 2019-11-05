@@ -41,7 +41,7 @@
     "test": "react-scripts test --watchAll=false --bail",
     "eject": "react-scripts eject",
     "lint": "tslint --project tsconfig.json",
-    "gcp-build": "concurrently --kill-others \"npm run-script lint\" \"npm run-script test\"",
+    "gcp-build": "concurrently \"npm run-script lint\" \"npm run-script test\"",
     "deploy": "gcloud app deploy"
   },
   "eslintConfig": {
