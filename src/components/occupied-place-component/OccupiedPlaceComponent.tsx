@@ -3,6 +3,7 @@ import React from 'react';
 import './OccupiedPlaceComponent.css';
 import ParkingPlaceDetailsDialog from '../parking-place-detail-component/ParkingPlaceDetailsDialog'
 import { ParkingDialogProps } from '../parking-place-component/ParkingDialogProps';
+import { Button } from '@material-ui/core';
 
 export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
 
@@ -13,11 +14,11 @@ export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
     });
 
     return (
-        <div className="occupied">
+        <Button className="occupied">
             <span className="smallFont">{props.parkingPlace.number}</span>
             <DirectionsCarIcon className="occupied" onClick={handleClickOpen}/>
             <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
-        </div>
+        </Button>
     );
 
 }
