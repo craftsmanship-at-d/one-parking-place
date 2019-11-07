@@ -14,11 +14,11 @@ export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
     });
 
     return (
-        <Button className="occupied">
+        <div className="occupied">
             <span className="smallFont">{props.parkingPlace.number}</span>
-            <DirectionsCarIcon className="occupied" onClick={handleClickOpen}/>
+            <DirectionsCarIcon className="occupied" data-cy-occupied-place onClick={handleClickOpen}/>
             <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
-        </Button>
+        </div>
     );
 
 }

@@ -15,7 +15,7 @@ export function FreePlaceComponent(props: ParkingDialogProps): JSX.Element {
     return (
         <div className="free">
             <span className="smallFont">{props.parkingPlace.number}</span>
-            <LocalParkingIcon onClick={handleClickOpen}/>
+            <LocalParkingIcon data-cy-free-place onClick={handleClickOpen}/>
             <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
         </div>
     );

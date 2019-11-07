@@ -29,11 +29,11 @@ export default function ParkingPlaceDetailsDialog(props: ParkingPlaceDetailsProp
 
     function getSubmitButton(): JSX.Element {
         return props.parkingPlace.type === ParkingPlaceType.EMPTY ? (
-            <Button onClick={reserve} color="primary">
+            <Button onClick={reserve} data-cy-reserve-button color="primary">
                 <Trans i18nKey="details.reserve"/>
             </Button>
         ) : (
-            <Button onClick={free} color="primary">
+            <Button onClick={free} data-cy-free-button color="primary">
                 <Trans i18nKey="details.free"/>
             </Button>
         );
