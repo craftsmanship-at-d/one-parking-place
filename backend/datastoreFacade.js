@@ -4,50 +4,57 @@ const { Datastore } = require('@google-cloud/datastore');
 
 const datastore = new Datastore({ project: 'one-parking-place' });
 
-exports.queryAuthorization = function(email, pin) {
-  var query = datastore.createQuery('Authorization');
-  query = query.filter('email', email);
-  query = query.filter('pin', pin);
+const datastoreFacade = {
+  createQuery: args => datastore.createQuery(args),
+  runQuery: args => datastore.runQuery(args),
+  key: args => datastore.key(args),
+  save: args => datastore.save(args),
 
-  return extractDataFromPromiseAwait(datastore.runQuery(query));
-};
+  queryAuthorization: function(email, pin) {
+    console.log(email);
+    console.log(pin);
+    var query = datastoreFacade.createQuery('Authorization');
 
-exports.saveAuthorization = function(email, pin, hash) {
-  const key = datastore.key('Authorization');
-  const entity = {
-    key: key,
-    data: {
-      email: email,
-      hash: hash,
-      pin: pin
-    }
-  };
+    console.log(query);
 
-  return datastore
-    .save(entity)
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => {
-      throw err;
-    });
-};
+    query = query.filter('email', email);
+    query = query.filter('pin', pin);
 
-exports.queryEmailSettings = function() {
-  var query = datastore.createQuery('EmailConfig');
+    return datastoreFacade.transformPromise(datastoreFacade.runQuery(query));
+  },
 
-  return extractDataFromPromiseAwait(datastore.runQuery(query));
-};
-
-var extractDataFromPromiseAwait = function(promise) {
-  return promise
-    .then(data => {
-      if (data[0][0]) {
-        return data[0][0];
+  saveAuthorization: function(email, pin, hash) {
+    const key = datastoreFacade.key('Authorization');
+    const entity = {
+      key: key,
+      data: {
+        email: email,
+        hash: hash,
+        pin: pin
       }
-      return {};
-    })
-    .catch(err => {
-      throw err;
-    });
+    };
+
+    return datastoreFacade.save(entity);
+  },
+
+  queryEmailSettings: function() {
+    var query = datastoreFacade.createQuery('EmailConfig');
+
+    return datastoreFacade.transformPromise(datastoreFacade.runQuery(query));
+  },
+
+  transformPromise: function(promise) {
+    return promise
+      .then(data => {
+        if (data[0][0]) {
+          return data[0][0];
+        }
+        return {};
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
 };
+
+module.exports = datastoreFacade;

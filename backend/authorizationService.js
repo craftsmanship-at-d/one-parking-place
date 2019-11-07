@@ -7,8 +7,7 @@ const hashService = require('./hashService');
 var sendEmailImpl = function(email, pin) {
   var userInfo = datastoreFacade.queryAuthorization(email, pin);
 
-  var emailPromise = emailService.sendEmail(email, userInfo.hash);
-  // TODO promise?
+  emailService.sendEmail(email, userInfo.hash);
 
   return { notification: 'Registration email sent, check your inbox.' };
 };
@@ -38,7 +37,7 @@ exports.authorize = async function(email, pin) {
 
       var hash = hashService.generateHash();
 
-      var promise = datastoreFacade.saveAuthorization(email, pin, hash);
+      datastoreFacade.saveAuthorization(email, pin, hash);
 
       result = sendEmailImpl(email, pin);
     }
