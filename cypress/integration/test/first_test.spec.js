@@ -1,19 +1,25 @@
 ///<reference types="Cypress" />
 
-import { array } from "prop-types"
-
 context('firstTest', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000')
     })
 
-    it('select first place and set to free', () => {
-      cy.visit('http://localhost:3000')
-      cy.get('div.MuiBox-root.MuiBox-root-40 > div > div:nth-child(1) [data-cy-occupied-place]').should('exist')
-     cy.get('div.MuiBox-root.MuiBox-root-40 > div > div:nth-child(1) [data-cy-occupied-place]').click()
-      
+    it('selects first occupied place and set to free', () => {
+
+      cy.get('#parking_place_0').should('exist')
+      cy.get('#parking_place_0').click()
 
       cy.get('[data-cy-free-button]').should('exist')
-      cy.get('[data-cy-free-button]').click()      
+      cy.get('[data-cy-free-button]').click()  
+    }) 
+
+    it('selects first free place and set to occupied', () => {
+
+      cy.get('#parking_place_1').should('exist')
+      cy.get('#parking_place_1').click()
+
+      cy.get('[data-cy-reserve-button]').should('exist')
+      cy.get('[data-cy-reserve-button]').click()      
     }) 
 })

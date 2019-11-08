@@ -16,7 +16,7 @@ export function OccupiedPlaceComponent(props: ParkingDialogProps): JSX.Element {
     return (
         <div className="occupied">
             <span className="smallFont">{props.parkingPlace.number}</span>
-            <DirectionsCarIcon className="occupied" data-cy-occupied-place onClick={handleClickOpen}/>
+            <DirectionsCarIcon className="occupied" id={"parking_place_" + props.parkingPlace.number} onClick={handleClickOpen}/>
             <ParkingPlaceDetailsDialog open={open} parkingPlace={props.parkingPlace} setOpen={setOpen}/>
         </div>
     );
